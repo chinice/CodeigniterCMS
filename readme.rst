@@ -32,7 +32,9 @@ Installation
 Configure your database info in the database.php file in the config folder.
 Import the cms.sql file to your database.
 The default Login credentials are:
+
 Username: admin
+
 Password: password.
 
 *******
