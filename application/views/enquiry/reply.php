@@ -25,15 +25,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="field-3" class="control-label">Message</label>
-                                <textarea name="description" cols="20" id='description' class="form-control autogrow"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="field-2" class="control-label">Document</label>
-                                <input type="file" name="file" id="file" class="form-control" />
+                                <textarea name="message" cols="20" id="message" class="form-control autogrow"></textarea>
                             </div>
                         </div>
                     </div>

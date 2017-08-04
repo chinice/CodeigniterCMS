@@ -21,6 +21,7 @@ class Enquiry extends CI_Controller
         $this->load->library('user_agent');
         $this->load->library('upload');
         $this->load->library('form_validation');
+        $this->load->library('email');
         date_default_timezone_set("Africa/Lagos");
     }
 
@@ -95,10 +96,47 @@ class Enquiry extends CI_Controller
         }
     }
 
+    /**
+     * Function to reply an enquiry by sending an email
+     */
     public function reply()
     {
-        //send email to the user
+        if($this->input->is_ajax_request()) {
+            //send email to the user
+            $from = $this->security->xss_clean($this->input->post('from'));
+            $subject = $this->security->xss_clean($this->input->post('subject'));
+            $message = $this->security->xss_clean($this->input->post('message'));
 
+            $id = base64_decode($this->security->xss_clean($this->input->post('id')));
+            $enquiry = $this->enquiry_m->getEnquiryById($id);
+            //to email address
+            $to = $enquiry->getEmail();
+
+            $config = array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'abc@gmail.com',
+                'smtp_pass' => 'passwrd',
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1',
+                'wordwrap' => TRUE
+            );
+            $this->email->initialize($config);
+            $this->email->set_newline("\r\n");
+            $this->email->from($from);
+            $this->email->to($to);
+            $this->email->subject($subject);
+            $this->email->message($message);
+            if ($this->email->send()) {
+                $check = true;
+                echo json_encode($check);
+            }
+            $check = false;
+            echo json_encode($check);
+        }else{
+            redirect($this->agent->referrer());
+        }
     }
 
 }
