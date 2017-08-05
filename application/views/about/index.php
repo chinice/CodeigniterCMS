@@ -14,56 +14,53 @@
                                 <i class="zmdi zmdi-more-vert"></i>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="javascript:;" class="adduser">Add User</a></li>
+                                <li><a href="javascript:;" class="addAbout">Add About Us</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                             </ul>
                         </div>
 
-                        <h4 class="header-title m-t-0 m-b-30">All Enquiries</h4>
+                        <h4 class="header-title m-t-0 m-b-30">About us</h4>
 
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Subject</th>
-                                <th>Message</th>
+                                <th>Content</th>
+                                <th>Title</th>
+                                <th>Description</th>
                                 <th>Status</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                            $sn = 1;
-                            foreach($enquiries as $enquiry) {
+                            <? $sn = 1;
+                            foreach($abouts as $about) {
                                 ?>
                                 <tr>
-                                    <td><? echo $sn; ?>.</td>
-                                    <td><? echo $enquiry->getName(); ?></td>
-                                    <td><? echo $enquiry->getEmail(); ?></td>
-                                    <td><? echo $enquiry->getSubject(); ?></td>
-                                    <td><? echo $enquiry->getMessage(); ?></td>
-                                    <td><? echo getEnquiryStatus($enquiry->getStatus()); ?></td>
-                                    <td width="15%">
+                                    <td><? echo $sn.'.'; ?></td>
+                                    <td><? echo $about->getContentId(); ?></td>
+                                    <td><? echo $about->getTitle(); ?></td>
+                                    <td><? echo substr($about->getDescription(), 0, 50).'..'; ?></td>
+                                    <td><? echo getStatus($about->getStatus()); ?></td>
+                                    <td>
                                         <div class="action-bar pull-right">
                                             <ul class="list-inline m-b-0">
                                                 <li>
-                                                    <a data-value="<? echo base64_encode($enquiry->getId()); ?>"
-                                                       href="javascript:;" title="Reply" class="icon reply circle-icon glyphicon glyphicon-refresh"></a>
+                                                    <a title="Edit" data-value="<? echo base64_encode($about->getId()); ?>" href="javascript:;" class="icon edit circle-icon glyphicon glyphicon-refresh"></a>
                                                 </li>
                                                 <li>
-                                                    <a data-value="<? echo base64_encode($enquiry->getId()); ?>" href="javascript:;" title="Delete" class="icon delete circle-icon red glyphicon glyphicon-remove"></a>
+                                                    <a data-value="<? echo base64_encode($about->getId()); ?>" href="javascript:;" title="Delete" class="icon delete circle-icon red glyphicon glyphicon-remove"></a>
                                                 </li>
                                                 <li>
-                                                    <a data-value="<? echo base64_encode($enquiry->getId()); ?>" href="javascript:;" title="Change Status" class="icon status circle-icon red glyphicon glyphicon-flag"></a>
+                                                    <a data-value="<? echo base64_encode($about->getId()); ?>" href="javascript:;" title="Change Status" class="icon status circle-icon
+                                                         <? echo ($about->getStatus() == 1) ? 'red' : 'yellow' ?> glyphicon glyphicon-flag"></a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </td>
                                 </tr>
-                                <?php
+                                <?
                                 $sn++;
                             }
                             ?>
@@ -74,8 +71,9 @@
             </div>
             <!-- end row -->
         </div> <!-- container -->
+        <? $this->load->view('about/add-about') ?>
     </div> <!-- content -->
-    <? $this->load->view('enquiry/reply') ?>
+
     <footer class="footer">
         <?php echo date('Y'); ?> © Elixir.
     </footer>

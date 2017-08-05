@@ -79,7 +79,7 @@
     </div> <!-- content -->
 
     <footer class="footer">
-        <?php echo date('Y'); ?> © Adminto.
+        <?php echo date('Y'); ?> © Elixir.
     </footer>
 
 </div>

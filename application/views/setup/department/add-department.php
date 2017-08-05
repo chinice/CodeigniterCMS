@@ -4,7 +4,7 @@
             <form action="<? echo BASEURL ?>setup/add_department" id="deptForm" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">ADD NEW USER</h4>
+                    <h4 class="modal-title">ADD NEW DEPARTMENT</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

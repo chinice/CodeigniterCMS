@@ -241,4 +241,34 @@ class About
     {
         return $this->updatedAt;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="contentid", type="integer", nullable=false)
+     */
+    private $contentid;
+
+
+    /**
+     * Set contentid
+     *
+     * @param integer $contentid
+     * @return About
+     */
+    public function setContentid($contentid)
+    {
+        $this->contentid = $contentid;
+
+        return $this;
+    }
+
+    /**
+     * Get contentid
+     *
+     * @return integer 
+     */
+    public function getContentid()
+    {
+        return $this->contentid;
+    }
 }

@@ -217,7 +217,7 @@
     </div> <!-- content -->
 
     <footer class="footer text-right">
-        2016 © Adminto.
+        <?php echo date('Y'); ?> © Elixir.
     </footer>
 
 </div>

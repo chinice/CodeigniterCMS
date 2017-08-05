@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 04, 2017 at 10:07 AM
+-- Generation Time: Aug 04, 2017 at 11:09 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about` (
   `id` int(11) NOT NULL,
-  `contendid` int(11) NOT NULL,
+  `contentid` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `image` varchar(255) DEFAULT NULL,
@@ -36,6 +36,14 @@ CREATE TABLE `about` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`id`, `contentid`, `title`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Vision Statement', '<p>The vision statement</p>', NULL, 1, '2017-08-04 19:20:17', '2017-08-04 19:20:17'),
+(2, 3, 'Mission Statement', '<p>About mission statement</p>', NULL, 1, '2017-08-04 19:39:37', '2017-08-04 19:39:37');
 
 -- --------------------------------------------------------
 
@@ -93,7 +101,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `email`, `phone`, `contactperson`, `address`, `website`, `facebook`, `linkedin`, `twitter`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'info@aedtechnologies.com', '08087173350, 08097890933', 'Okey Obiagwu', '28B Babatunde Jose Street, Victoria Island, Lagos State.', 'www.aedtechnologies.com', 'www.facebook.com/aedtechnologies', 'www.linkedin.com/aedtechnologies', 'www.twitter.com/aedtechnologies', 1, '2017-07-20 15:10:18', '2017-07-20 15:10:18');
+(1, 'info@elixirprimehouse.com', '08087173350', 'Chinedu Rowland', '28B Babatunde Jose Street, Victoria Island, Lagos State.', 'www.elixirprimehouse.com', 'www.facebook.com/elixirprimehouse', 'www.linkedin.com/elixirprimehouse', 'www.twitter.com/elixirprimehouse', 1, '2017-07-20 15:10:18', '2017-07-20 15:10:18');
 
 -- --------------------------------------------------------
 
@@ -115,8 +123,9 @@ CREATE TABLE `content` (
 --
 
 INSERT INTO `content` (`id`, `name`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Just a content', 'Just a test content', 1, '2017-08-01 11:39:05', '2017-08-01 11:39:05'),
-(3, 'Test Content 4 real', 'A test tester terterer', 1, '2017-08-01 12:33:08', '2017-08-01 12:33:08');
+(1, 'Vision', 'Vision statement of the company', 1, '2017-08-01 11:39:05', '2017-08-01 11:39:05'),
+(3, 'Mission', 'Mission statement of the company', 1, '2017-08-01 12:33:08', '2017-08-01 12:33:08'),
+(4, 'Company profile', 'Description of the company profile', 1, '2017-08-04 18:54:53', '2017-08-04 18:54:53');
 
 -- --------------------------------------------------------
 
@@ -311,7 +320,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `careers`
 --
@@ -326,7 +335,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `department`
 --

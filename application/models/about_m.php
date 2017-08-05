@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once APPPATH.'models/Entities/Content.php';
+require_once APPPATH.'models/Entities/About.php';
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@ require_once APPPATH.'models/Entities/Content.php';
  * Date: 20/07/2017
  * Time: 3:11 PM
  */
-class Content_m extends CI_Model
+class About_m extends CI_Model
 {
     /**
      * @var
@@ -16,7 +16,7 @@ class Content_m extends CI_Model
     var $em;
 
     /**
-     * Content_m constructor.
+     * Contact_m constructor.
      */
     public function __construct()
     {
@@ -25,43 +25,43 @@ class Content_m extends CI_Model
     }
 
     /**
-     * Function to get all contents
+     * Function to get all about us contents
      * @return bool
      */
-    public function getAllContents()
+    public function getAllAbout()
     {
         try{
-            $contents = $this->em->getRepository('Content')->findAll();
-            return $contents;
+            $abouts = $this->em->getRepository('About')->findAll();
+            return $abouts;
         }catch(Exception $ex){
             return false;
         }
     }
 
     /**
-     * Function to get content by id
+     * Function to get about us detail by id
      * @param $id
      * @return bool
      */
-    public function getContentById($id)
+    public function getAboutById($id)
     {
         try{
-            $content = $this->em->getRepository('Content')->find($id);
-            return $content;
+            $about = $this->em->getRepository('About')->find($id);
+            return $about;
         }catch(Exception $ex){
             return false;
         }
     }
 
     /**
-     * Function to add a content to the database
-     * @param $content
+     * Function to update a record
+     * @param $about
      * @return bool
      */
-    public function addContent($content)
+    public function updateAbout($about)
     {
         try{
-            $this->em->persist($content);
+            $this->em->merge($about);
             $this->em->flush();
             return true;
         }catch(Exception $ex){
@@ -70,14 +70,14 @@ class Content_m extends CI_Model
     }
 
     /**
-     * Function to update a content
-     * @param $content
+     * Function to add about us
+     * @param $about
      * @return bool
      */
-    public function updateContent($content)
+    public function addAbout($about)
     {
         try{
-            $this->em->merge($content);
+            $this->em->persist($about);
             $this->em->flush();
             return true;
         }catch(Exception $ex){
@@ -86,15 +86,15 @@ class Content_m extends CI_Model
     }
 
     /**
-     * Function to delete a content
+     * Function to delete an about us record
      * @param $id
      * @return bool
      */
-    public function deleteContent($id)
+    public function delete($id)
     {
         try{
-            $content = $this->em->getRepository('Content')->find($id);
-            $this->em->remove($content);
+            $about = $this->em->getRepository('About')->find($id);
+            $this->em->remove($about);
             $this->em->flush();
             return true;
         }catch(Exception $ex){

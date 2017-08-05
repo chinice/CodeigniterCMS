@@ -43,7 +43,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="waves-effect"><i class="zmdi zmdi-album"></i><span> About Us </span></a>
+                    <a href="<? echo BASEURL; ?>aboutus" class="waves-effect <?php if($this->uri->segment(1)=="aboutus"){echo "active";}?>"><i class="zmdi zmdi-album"></i><span> About Us </span></a>
                 </li>
 
                 <li>

@@ -4,7 +4,7 @@
             <form action="<? echo BASEURL ?>enquiry/reply" id="replyForm" method="post" enctype="multipart/form-data">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">ADD NEW USER</h4>
+                    <h4 class="modal-title">REPLY AN ENQUIRY</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -25,7 +25,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="field-3" class="control-label">Message</label>
-                                <textarea name="message" cols="20" id="message" class="form-control autogrow"></textarea>
+                                <textarea name="message" required cols="20" id="message" class="form-control autogrow"></textarea>
                             </div>
                         </div>
                     </div>

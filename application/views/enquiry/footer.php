@@ -15,7 +15,7 @@
 <script type="text/javascript" src="<? echo WYSIWYG_JS ?>plugins/entities.min.js"></script>
 <script type="text/javascript">
     $(function(){
-        $('#description')
+        $('#message')
             .froalaEditor({enter: $.FroalaEditor.ENTER_P, placeholderText: "Enter your reply here"});
 
         $('.status').click(function(){
@@ -132,8 +132,9 @@
                 contentType: false,
                 cache: false,
                 processData: false,
-                success: function (e) {
+                success: function () {
                     document.getElementById('roller').style.display = "none";
+
                     $('#submit').prop('disabled', false);
 
                     toastr['success']("Reply was successfully sent", 'Success');

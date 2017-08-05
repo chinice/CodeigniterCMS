@@ -1,27 +1,32 @@
 <div id="newContentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="<? echo BASEURL ?>setup/add_content" id="contentForm" method="post">
+            <form action="<? echo BASEURL ?>aboutus/add" id="aboutForm" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">ADD NEW CONTENT</h4>
+                    <h4 class="modal-title">ADD NEW ABOUT US RECORD</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="field-1" class="control-label">Name</label>
-                                <input type="text" class="form-control" required id="name" name="name" placeholder="Content Name">
+                                <label for="field-2" class="control-label">Content</label>
+                                <select name="content" id="content" class="form-control">
+                                    <option value="">-- Select --</option>
+                                    <?
+                                    foreach($contents as $content) {
+                                        ?>
+                                        <option value="<? echo $content->getId(); ?>"><? echo $content->getName(); ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="field-2" class="control-label">Status</label>
-                                <select name="status" class="form-control" id="status">
-                                    <option value="">-- Select --</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
-                                </select>
+                                <label for="field-1" class="control-label">Title</label>
+                                <input type="text" class="form-control" required id="title" name="title" placeholder="Title">
                             </div>
                         </div>
                     </div>
@@ -29,7 +34,7 @@
                         <div class="col-md-12">
                             <div class="form-group no-margin">
                                 <label for="field-7" class="control-label">Description</label>
-                                <textarea name="description" class="form-control autogrow" id="field-7" placeholder="Content Description"
+                                <textarea name="description" id="description" class="form-control autogrow" id="field-7" placeholder="Content Description"
                                           style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 240px;"></textarea>
                             </div>
                         </div>
